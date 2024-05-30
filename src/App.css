@@ -7,6 +7,15 @@
   flex-direction: column;
   h3 {
     font-size: 1.5rem;
-    margin-bottom: 1rem;
+    margin: 1.5rem;
+  }
+}
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  button {
+    margin: 0 0.5rem;
+    width: 100px;
   }
 }

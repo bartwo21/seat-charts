@@ -7,6 +7,7 @@
 
   .box {
     border: 1px solid #e7e7e7;
+    margin-bottom: 10px;
     .rs-panel-btn {
       &:hover,
       &:active,
@@ -38,6 +39,7 @@
       .origin,
       .destination {
         width: 8%;
+        white-space: nowrap;
         p {
           font-size: 0.75rem;
           margin: 4px 0;

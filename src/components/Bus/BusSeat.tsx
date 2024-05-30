@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { IoIosMan, IoIosWoman } from "react-icons/io";
 import { Button, Modal } from "rsuite";
-import { placeHolderBusSeats } from "../data/Bus";
+import { placeHolderBusSeats } from "../../data/Bus";
 import "./BusSeat.scss";
 
 const BusSeat = ({
@@ -104,24 +104,6 @@ const BusSeat = ({
     setSelectedSeat(seatNumber);
     handleClose();
   };
-
-  // Durum = 0 => Seat Empty
-  // Durum = 1 => Seat Sold to a Female
-  // Durum = 2 => Seat Reserved for a Female
-  // Durum = 3 => Seat Sold to a Male
-  // Durum = 4 => Seat Reserved for a Male
-  // Durum = 5 => Seat Being Sold
-  // Durum = 6 =>  Seat Not for Sale
-
-  // DurumYan = 0 => Adjacent Seat Empty (Can be Sold to Either Gender)
-  // DurumYan= 1 => Adjacent Seat Sold to a Female (Can Only be Sold to a Female)
-  // DurumYan = 2 => Adjacent Seat Sold to a Male (Can Only be Sold to a Male)
-  // DurumYan = 3,4,5,6 => Adjacent Seat Uncertain (Cannot be Sold in Any Case)
-
-  // Seats with a number of -1 correspond to aisles, doors, or tables. (KoltukNo)
-  // SeatStr = "KO" => Aisle
-  // SeatStr = "KA", "PI" => Door
-
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
