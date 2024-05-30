@@ -18,7 +18,7 @@ function App() {
   }>({});
   const [activeTicketId, setActiveTicketId] = useState<string | null>(null);
   const [data, _] = useState<any[]>(BusListData);
-  const [busTicket, setBusTicket] = useState<BusTicket | null>(null);
+  const [, setBusTicket] = useState<BusTicket | null>(null);
 
   const handleBuyBusTicket = () => {
     if (
