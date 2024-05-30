@@ -25,6 +25,44 @@ Seats with seat numbers `-1` represent corridors, doors, or tables:
 - **"KO"**: Corridor
 - **"KA"**, **"PI"**: Door
 
+### Example Seat Data
+
+The example seat data is included in your `Bus.tsx` file:
+
+```typescript
+export const placeHolderBusSeats = [
+  {
+    KoltukStr: "01",
+    KoltukNo: "1",
+    Durum: "3",
+    DurumYan: "0",
+    KoltukFiyatiInternet: "350",
+  },
+  {
+    KoltukStr: "KO",
+    KoltukNo: "-1",
+    Durum: "0",
+    DurumYan: "0",
+    KoltukFiyatiInternet: "0",
+  },
+  {
+    KoltukStr: "KO",
+    KoltukNo: "-1",
+    Durum: "0",
+    DurumYan: "0",
+    KoltukFiyatiInternet: "0",
+  },
+  {
+    KoltukStr: "02",
+    KoltukNo: "2",
+    Durum: "1",
+    DurumYan: "1",
+    KoltukFiyatiInternet: "350",
+  },
+  // Add more seats as needed
+];
+
+
 ## Seat Selection Logic
 
 The `handleSelectSeat` function manages the seat selection process:
