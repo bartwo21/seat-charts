@@ -1,31 +1,92 @@
-# React + TypeScript + Vite
+# Bus Seat Selection Functionality
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+This component allows users to select seats on a bus, providing a visual representation of the bus layout and interactive seat selection. It handles different seat statuses and gender-based seat reservations.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Seat Statuses
 
-## Expanding the ESLint configuration
+Seats have various statuses indicated by a `Durum` property:
+- **0**: Seat is empty
+- **1**: Seat sold to a female
+- **2**: Seat reserved for a female
+- **3**: Seat sold to a male
+- **4**: Seat reserved for a male
+- **5**: Seat is being sold
+- **6**: Seat is unavailable
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Adjacent seats (`DurumYan`) also have statuses:
+- **0**: Adjacent seat is empty (can be sold to any gender)
+- **1**: Adjacent seat sold to a female (can only be sold to females)
+- **2**: Adjacent seat sold to a male (can only be sold to males)
+- **3, 4, 5, 6**: Adjacent seat is undefined (cannot be sold)
 
-- Configure the top-level `parserOptions` property like this:
+Seats with seat numbers `-1` represent corridors, doors, or tables:
+- **"KO"**: Corridor
+- **"KA"**, **"PI"**: Door
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+## Seat Selection Logic
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
-# seat-charts
+The `handleSelectSeat` function manages the seat selection process:
+
+```typescript
+const handleSelectSeat = (seatNumber: string, gender: string) => {
+  const selectedSeat = Array.isArray(seats)
+    ? seats.flat().find((seat) => seat.KoltukStr === seatNumber)
+    : null;
+
+  if (!selectedSeat) {
+    alert("The selected seat is not available.");
+    return;
+  }
+  if (userSelectedSeats?.length === 4) {
+    alert("You can select up to 4 seats.");
+    return;
+  }
+
+  if (
+    selectedSeat.Durum !== "0" ||
+    selectedSeat.DurumYan === "3" ||
+    selectedSeat.DurumYan === "4" ||
+    selectedSeat.DurumYan === "5" ||
+    selectedSeat.DurumYan === "6"
+  ) {
+    alert("The selected seat is not available.");
+    return;
+  }
+
+  if (selectedSeat.DurumYan === "1" && gender !== "female") {
+    alert("This seat is only available for females.");
+    return;
+  }
+
+  if (selectedSeat.DurumYan === "2" && gender !== "male") {
+    alert("This seat is only available for males.");
+    return;
+  }
+
+  if (!userSelectedSeats?.some((seat) => seat.seatNumber === seatNumber)) {
+    setUserSelectedSeats((prevSeats) => {
+      const updatedSeats = { ...prevSeats };
+      const currentSeats = updatedSeats[busData.ID] || [];
+      if (currentSeats.some((seat) => seat.seatNumber === seatNumber)) {
+        updatedSeats[busData.ID] = currentSeats.filter(
+          (seat) => seat.seatNumber !== seatNumber
+        );
+      } else {
+        updatedSeats[busData.ID] = [
+          ...currentSeats,
+          {
+            busId: busData.ID,
+            seatNumber,
+            gender,
+            price: selectedSeat?.KoltukFiyatiInternet,
+          },
+        ];
+      }
+      return updatedSeats;
+    });
+  }
+  setSelectedSeat(seatNumber);
+  handleClose();
+};
