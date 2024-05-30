@@ -130,3 +130,15 @@ const handleSelectSeat = (seatNumber: string, gender: string) => {
 };
 ```
 # Default Seat Selection Functionality
+
+-----
+
+#### Dependencies:
+```json
+{
+  "react": "^18.2.0",
+  "react-dom": "^18.2.0",
+  "react-icons": "^5.2.1",
+  "rsuite": "^5.64.0"
+}
+```
