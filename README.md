@@ -128,3 +128,5 @@ const handleSelectSeat = (seatNumber: string, gender: string) => {
   setSelectedSeat(seatNumber);
   handleClose();
 };
+```
+# Default Seat Selection Functionality
