@@ -1,0 +1,223 @@
+.bus-tickets-boxes {
+  width: clamp(50px, 100%, 1000px);
+
+  .rs-panel-btn-icon {
+    display: none;
+  }
+
+  .box {
+    border: 1px solid #e7e7e7;
+    .rs-panel-btn {
+      &:hover,
+      &:active,
+      &:focus {
+        background-color: transparent !important;
+        outline: none;
+      }
+    }
+    .bus-ticket-header {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      .company {
+        width: 70px;
+      }
+      .time {
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 0.75rem;
+        border-radius: 6px;
+        color: #ec4050;
+        background-color: #fde9eb;
+      }
+      img {
+        width: 80px;
+      }
+      .origin,
+      .destination {
+        width: 8%;
+        p {
+          font-size: 0.75rem;
+          margin: 4px 0;
+          &:first-child {
+            opacity: 0.6;
+          }
+        }
+      }
+
+      .seat-type {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding: 10px;
+        font-weight: 500;
+        border-radius: 5px;
+        border: 1px solid #c7c7c7;
+        img {
+          width: 17px;
+        }
+      }
+      .select-seat-button {
+        background-color: #584bec;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 5px;
+        font-size: 0.8rem;
+        transition: all 0.3s;
+        &:hover {
+          background-color: #6b5ef0;
+        }
+      }
+    }
+    .top {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      .seat-infos {
+        width: 30%;
+        .icons {
+          display: flex;
+          gap: 10px;
+          button {
+            background: none;
+            border: 1px solid #e7e7e7;
+          }
+        }
+        .seat-colors {
+          display: flex;
+          gap: 17px;
+          flex-direction: column;
+          margin: 25px 0 25px 0;
+          .seat-color {
+            display: flex;
+            gap: 10px;
+            img {
+              width: 20px;
+            }
+            p {
+              font-size: 0.8rem;
+              margin: 0;
+              color: black;
+            }
+          }
+        }
+        p {
+          color: #b3b3b3;
+          font-size: 0.7rem;
+        }
+      }
+      .seats {
+        width: 70%;
+      }
+    }
+    .bottom {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 10px;
+      margin-top: 20px;
+      .selected-seats {
+        margin: 0px 10px 0px 0;
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        p {
+          font-size: 1rem;
+          margin: 0;
+          color: #000000;
+          white-space: nowrap;
+        }
+        .selected-seats-box {
+          display: flex;
+          justify-content: flex-start;
+          flex-wrap: wrap;
+          gap: 20px;
+          .selected-seat {
+            padding: 5px 10px;
+            border-radius: 5px;
+            background-color: #e6cbd4;
+            &.male {
+              background-color: #c7e2fb;
+            }
+          }
+        }
+      }
+      .buy {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        p {
+          white-space: nowrap;
+        }
+        .buy-bus-ticket {
+          background-color: rgb(45, 212, 162);
+          color: white;
+          padding: 12px 25px;
+          &:hover {
+            background-color: #5fecc2;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 960px) {
+  .rs-panel-header {
+    .rs-panel-btn {
+      .rs-panel-title,
+      .bus-ticket-header {
+        flex-wrap: wrap;
+        gap: 10px;
+        .origin,
+        .destination,
+        .arrow {
+          order: -1;
+          width: 30%;
+        }
+        .destination {
+          text-align: right;
+        }
+      }
+    }
+  }
+  .top {
+    flex-direction: column-reverse;
+    .seat-infos {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+
+      .icons {
+        height: 40px;
+      }
+      .seat-colors {
+        margin: 0 !important;
+      }
+    }
+    .seats {
+      overflow-x: auto;
+      width: 100% !important;
+      svg {
+        min-width: 600px;
+      }
+    }
+  }
+  .bottom {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 30px;
+    .selected-seats {
+      margin-bottom: 20px !important;
+      .selected-seats-box {
+        flex-wrap: wrap;
+        gap: 10px !important;
+      }
+    }
+    .buy {
+      justify-content: space-between;
+    }
+  }
+}

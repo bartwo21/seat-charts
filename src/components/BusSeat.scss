@@ -1,0 +1,91 @@
+.wheel {
+  stroke: #929292;
+  stroke-width: 2px;
+  fill: #fff;
+}
+
+.front {
+  stroke: #bac8cc;
+  stroke-width: 0.873px;
+  fill: #f3f7f8;
+}
+
+.s-body {
+  fill: #f3f7f8;
+}
+
+.s-side {
+  fill: #f3f7f8;
+}
+
+.s-seat {
+  fill: #fff;
+  stroke: #c6c6c6;
+  cursor: pointer;
+}
+
+.s-seat-n {
+  fill: #000000;
+  font-size: 1rem;
+  text-anchor: middle;
+}
+
+.empty-seat {
+  fill: #f3f7f8;
+  stroke: #c6c6c6;
+  cursor: pointer;
+}
+
+.selected-female {
+  fill: #ead8de;
+  stroke: #bd8598;
+  cursor: pointer;
+}
+
+.sold-female {
+  fill: #ead8de;
+  stroke: #bd8598;
+  cursor: not-allowed;
+}
+
+.reserved-female {
+  fill: #ead8de;
+  stroke: #bd8598;
+  cursor: not-allowed;
+}
+.selected-male {
+  fill: #c7e2fb;
+  stroke: #50a4f3;
+  cursor: pointer;
+}
+.reserved-male {
+  fill: #c7e2fb;
+  stroke: #50a4f3;
+  cursor: not-allowed;
+}
+
+.sold-male {
+  fill: #c7e2fb;
+  stroke: #50a4f3;
+  cursor: not-allowed;
+}
+
+.being-sold {
+  fill: #c7e2fb;
+  stroke: #50a4f3;
+  cursor: pointer;
+}
+
+.unavailable {
+  fill: #c7e2fb;
+  stroke: #50a4f3;
+  cursor: not-allowed;
+}
+
+.select-gender {
+  .rs-modal-body {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+  }
+}
