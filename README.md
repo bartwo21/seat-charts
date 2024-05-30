@@ -61,7 +61,7 @@ export const placeHolderBusSeats = [
   },
   // Add more seats as needed
 ];
-
+```
 
 ## Seat Selection Logic
 
