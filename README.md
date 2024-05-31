@@ -131,7 +131,7 @@ const handleSelectSeat = (seatNumber: string, gender: string) => {
 ```
 # Default Seat Selection Functionality
 
-This document describes the seating arrangement, including the status (occupied or available) and the price of each seat.
+This component describes the seating arrangement, including the status (occupied or available) and the price of each seat.
 
 ## Data Format
 
