@@ -1,8 +1,9 @@
 import "rsuite/dist/rsuite.min.css";
 import "./App.css";
-import BusList from "./components/Bus/BusList";
+import BusList from "./components/Bus/BusList/BusList";
 import { useState } from "react";
 import { Button } from "rsuite";
+import Event from "./components/Event/Event/Event";
 
 function App() {
   const [selectedSeatType, setSelectedSeatType] = useState<string>("Bus");
@@ -27,7 +28,7 @@ function App() {
           Event
         </Button>
       </div>
-      {selectedSeatType === "Bus" ? <BusList /> : <h3>Event</h3>}
+      {selectedSeatType === "Bus" ? <BusList /> : <Event />}
     </div>
   );
 }

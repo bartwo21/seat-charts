@@ -1,7 +1,7 @@
 import "./BusList.scss";
-import BusSeat from "./BusSeat";
-import { BusTicket } from "../../data/Types";
-import { BusListData } from "../../data/BusListData";
+import BusSeat from "../BusSeat/BusSeat";
+import { BusTicket } from "../../../data/Types";
+import { BusListData } from "../../../data/BusListData";
 import { Button, Panel, PanelGroup, Tooltip, Whisper } from "rsuite";
 import { CiClock1, CiHeadphones } from "react-icons/ci";
 import { MdKeyboardDoubleArrowRight, MdOutlineWbSunny } from "react-icons/md";

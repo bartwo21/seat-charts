@@ -1,0 +1,26 @@
+.event {
+  h3 {
+    text-align: center;
+  }
+  .selected-seats {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    h5 {
+      margin-bottom: 10px;
+      border-bottom: 1px solid #c2c2c2;
+      width: 200px;
+      text-align: center;
+      padding-bottom: 10px;
+    }
+  }
+}

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { IoIosMan, IoIosWoman } from "react-icons/io";
 import { Button, Modal } from "rsuite";
-import { placeHolderBusSeats } from "../../data/Bus";
+import { placeHolderBusSeats } from "../../../data/Bus";
 import "./BusSeat.scss";
 
 const BusSeat = ({
@@ -41,6 +41,7 @@ const BusSeat = ({
   const [selectedSeat, setSelectedSeat] = useState("");
 
   useEffect(() => {
+    // if onEntered setSeats(response.data.data.Koltuk);
     setSeats(placeHolderBusSeats);
   }, [onEntered]);
 
@@ -104,6 +105,9 @@ const BusSeat = ({
     setSelectedSeat(seatNumber);
     handleClose();
   };
+  console.log("userSelectedSeats: ", userSelectedSeats);
+  console.log("busData: ", busData);
+  console.log("selectedSeat: ", selectedSeat);
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

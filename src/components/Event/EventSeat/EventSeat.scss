@@ -1,0 +1,72 @@
+.event-seat-map {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+  border: 1px solid #e7e7e7;
+  padding: 55px;
+  .event-seat-map-title {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: rgb(78, 78, 78);
+  }
+}
+
+.event-seat-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 5px;
+  width: 100%;
+
+  .row-name {
+    margin-right: 7px;
+    font-size: 1rem;
+    color: black;
+    font-weight: 700;
+  }
+}
+
+.event-seat {
+  width: 20px;
+  height: 30px;
+  margin: 2px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #eee;
+  cursor: pointer;
+  font-weight: 800;
+  &:hover {
+    background-color: darken(#eee, 10%);
+  }
+}
+
+.occupied-event-seat {
+  background-color: #000000;
+  color: white;
+  cursor: not-allowed;
+
+  &:hover {
+    background-color: #000000;
+  }
+}
+
+.empty-event-seat {
+  background-color: #e7e7e7;
+}
+
+.gap-event-seat {
+  visibility: hidden;
+}
+
+.selected-event-seat {
+  background-color: #e6cac4;
+  color: white;
+
+  &:hover {
+    background-color: #e6cac4;
+  }
+}
