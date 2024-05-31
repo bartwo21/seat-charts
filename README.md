@@ -146,7 +146,7 @@ The data is presented in the following format:
 ### Example Data
 
 ```plaintext
-'a[A1, 1, 45]a[A2, 2, 25]a[A3, 3, 25]a[A4, 4, 251]a[A5, 5, 25]a[A6, 6, 25]x[A7, 7, 25]; a[B1, 1, 25]a[B2, 2, 25]x[B3, 3, 25]a[B4, 4, 25]_a[B5, 5, 25]'
+"'a[A1, 1, 45]a[A2, 2, 25]a[A3, 3, 25]a[A4, 4, 251]a[A5, 5, 25]a[A6, 6, 25]x[A7, 7, 25]; a[B1, 1, 25]a[B2, 2, 25]x[B3, 3, 25]a[B4, 4, 25]_a[B5, 5, 25]'"
 ```
 
 ---
