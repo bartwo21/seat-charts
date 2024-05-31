@@ -131,7 +131,25 @@ const handleSelectSeat = (seatNumber: string, gender: string) => {
 ```
 # Default Seat Selection Functionality
 
------
+This component describes the seating arrangement, including the status (occupied or available) and the price of each seat.
+
+## Data Format
+
+The data is presented in the following format:
+- `'`: Start of row
+- `;`: End of row
+- `a`: Available seat
+- `x`: Occupied seat
+- `_`: Space
+- `[A1, 1, 45]`: Seat information, [seat name, seat number, seat price]
+
+### Example Data
+
+```plaintext
+'a[A1, 1, 45]a[A2, 2, 25]a[A3, 3, 25]a[A4, 4, 251]a[A5, 5, 25]a[A6, 6, 25]x[A7, 7, 25]; a[B1, 1, 25]a[B2, 2, 25]x[B3, 3, 25]a[B4, 4, 25]_a[B5, 5, 25]'
+```
+
+---
 
 #### Dependencies:
 ```json
