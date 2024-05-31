@@ -24,7 +24,7 @@ const BusList = () => {
       !userSelectedSeats[activeTicketId as any]?.length ||
       userSelectedSeats[activeTicketId as any]?.length === 0
     ) {
-      alert("Lütfen koltuk seçimi yapınız.");
+      alert("Please select a seat to buy a ticket.");
 
       return;
     }
