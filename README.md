@@ -12,9 +12,16 @@ To install the required dependencies, run the following command:
 npm install seat-charts
 ```
 
+and i used sass
+
+```bash
+npm install -D sass-embedded
+```
+
 ## Seat Statuses
 
 Seats have various statuses indicated by a `Durum` property:
+
 - **0**: Seat is empty
 - **1**: Seat sold to a female
 - **2**: Seat reserved for a female
@@ -24,12 +31,14 @@ Seats have various statuses indicated by a `Durum` property:
 - **6**: Seat is unavailable
 
 Adjacent seats (`DurumYan`) also have statuses:
+
 - **0**: Adjacent seat is empty (can be sold to any gender)
 - **1**: Adjacent seat sold to a female (can only be sold to females)
 - **2**: Adjacent seat sold to a male (can only be sold to males)
 - **3, 4, 5, 6**: Adjacent seat is undefined (cannot be sold)
 
 Seats with seat numbers `-1` represent corridors, doors, or tables:
+
 - **"KO"**: Corridor
 - **"KA"**, **"PI"**: Door
 
@@ -78,6 +87,7 @@ This component describes the seating arrangement, including the status (occupied
 ## Data Format
 
 The data is presented in the following format:
+
 - `'`: Start of row
 - `;`: End of row
 - `a`: Available seat
@@ -110,7 +120,7 @@ import "../node_modules/seat-charts/src/styles/BusSeat.scss"; // required
 import "../node_modules/seat-charts/src/styles/EventSeat.scss"; // required
 import "../node_modules/seat-charts/src/styles/Event.scss"; // required
 import { useState } from "react"; // required
-import { seatMap } from "./EventSeat";
+import { seatMap } from "./EventSeat"; // required
 
 function App() {
   const [userSelectedSeats, setUserSelectedSeats] = useState({}); // required
@@ -140,11 +150,13 @@ export default App;
 ```
 
 #### Dependencies:
+
 ```json
 {
   "react": "^18.2.0",
   "react-dom": "^18.2.0",
   "react-icons": "^5.2.1",
-  "rsuite": "^5.64.0"
+  "rsuite": "^5.64.0",
+  "sass": "^1.77.3"
 }
 ```
