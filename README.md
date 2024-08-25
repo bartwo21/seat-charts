@@ -4,6 +4,14 @@
 
 This component allows users to select seats on a bus, providing a visual representation of the bus layout and interactive seat selection. It handles different seat statuses and gender-based seat reservations.
 
+## Installation
+
+To install the required dependencies, run the following command:
+
+```bash
+npm install seat-charts
+```
+
 ## Seat Statuses
 
 Seats have various statuses indicated by a `Durum` property:
