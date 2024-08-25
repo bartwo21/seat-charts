@@ -9,7 +9,7 @@ This component allows users to select seats on a bus, providing a visual represe
 To install the required dependencies, run the following command:
 
 ```bash
-npm install seat-charts
+npm install [seat-charts](https://www.npmjs.com/package/seat-charts)
 ```
 
 ## Seat Statuses
