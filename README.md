@@ -95,7 +95,9 @@ The data is presented in the following format:
 
 ### Usage Example
 
+```http
 The data I use for the bus and the event are in the src/data folder. You can get it from here
+```
 
 ```typescript
 import "./App.css";
