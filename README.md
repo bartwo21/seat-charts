@@ -63,7 +63,7 @@ export const placeHolderBusSeats = [
 ];
 ```
 
-# Default Seat Selection Functionality
+# Event Seat Selection Functionality
 
 This component describes the seating arrangement, including the status (occupied or available) and the price of each seat.
 
