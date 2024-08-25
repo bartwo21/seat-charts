@@ -1,6 +1,6 @@
-# Bus Seat Selection Functionality
+# Bus and Event Seat Charts
 
-## Overview
+## Bus Seat Selection Functionality
 
 This component allows users to select seats on a bus, providing a visual representation of the bus layout and interactive seat selection. It handles different seat statuses and gender-based seat reservations.
 
@@ -63,72 +63,6 @@ export const placeHolderBusSeats = [
 ];
 ```
 
-## Seat Selection Logic
-
-The `handleSelectSeat` function manages the seat selection process:
-
-```typescript
-const handleSelectSeat = (seatNumber: string, gender: string) => {
-  const selectedSeat = Array.isArray(seats)
-    ? seats.flat().find((seat) => seat.KoltukStr === seatNumber)
-    : null;
-
-  if (!selectedSeat) {
-    alert("The selected seat is not available.");
-    return;
-  }
-  if (userSelectedSeats?.length === 4) {
-    alert("You can select up to 4 seats.");
-    return;
-  }
-
-  if (
-    selectedSeat.Durum !== "0" ||
-    selectedSeat.DurumYan === "3" ||
-    selectedSeat.DurumYan === "4" ||
-    selectedSeat.DurumYan === "5" ||
-    selectedSeat.DurumYan === "6"
-  ) {
-    alert("The selected seat is not available.");
-    return;
-  }
-
-  if (selectedSeat.DurumYan === "1" && gender !== "female") {
-    alert("This seat is only available for females.");
-    return;
-  }
-
-  if (selectedSeat.DurumYan === "2" && gender !== "male") {
-    alert("This seat is only available for males.");
-    return;
-  }
-
-  if (!userSelectedSeats?.some((seat) => seat.seatNumber === seatNumber)) {
-    setUserSelectedSeats((prevSeats) => {
-      const updatedSeats = { ...prevSeats };
-      const currentSeats = updatedSeats[busData.ID] || [];
-      if (currentSeats.some((seat) => seat.seatNumber === seatNumber)) {
-        updatedSeats[busData.ID] = currentSeats.filter(
-          (seat) => seat.seatNumber !== seatNumber
-        );
-      } else {
-        updatedSeats[busData.ID] = [
-          ...currentSeats,
-          {
-            busId: busData.ID,
-            seatNumber,
-            gender,
-            price: selectedSeat?.KoltukFiyatiInternet,
-          },
-        ];
-      }
-      return updatedSeats;
-    });
-  }
-  setSelectedSeat(seatNumber);
-  handleClose();
-};
-```
 # Default Seat Selection Functionality
 
 This component describes the seating arrangement, including the status (occupied or available) and the price of each seat.
@@ -150,6 +84,48 @@ The data is presented in the following format:
 ```
 
 ---
+
+### Usage Example
+
+```typescript
+import "./App.css";
+import { BusList, Event } from "seat-charts"; // required
+import { placeHolderBusSeats } from "./Bus"; // required
+import { BusListData } from "./BusListData"; // required
+import "rsuite/dist/rsuite.min.css"; // required
+import "../node_modules/seat-charts/src/styles/BusList.scss"; // required
+import "../node_modules/seat-charts/src/styles/BusSeat.scss"; // required
+import "../node_modules/seat-charts/src/styles/EventSeat.scss"; // required
+import "../node_modules/seat-charts/src/styles/Event.scss"; // required
+import { useState } from "react"; // required
+import { seatMap } from "./EventSeat";
+
+function App() {
+  const [userSelectedSeats, setUserSelectedSeats] = useState({}); // required
+  const [selectedSeat, setSelectedSeat] = useState(""); // required
+  const [busData, setBusData] = useState<any[]>([]); // required
+
+  const [userSelectedEventSeats, setUserSelectedEventSeats] = useState([]); // required
+
+  return (
+    <>
+      <BusList
+        busSeats={placeHolderBusSeats}
+        busTicketData={BusListData as any} // needs to be specified as any
+        onUserSelectedSeatsChange={setUserSelectedSeats}
+        onSelectedSeatChange={setSelectedSeat}
+        onBusDataChange={setBusData}
+      />
+      <Event
+        seatMap={seatMap}
+        onUserSelectedSeatsChange={setUserSelectedEventSeats as any} // needs to be specified as any
+      />
+    </>
+  );
+}
+
+export default App;
+```
 
 #### Dependencies:
 ```json
