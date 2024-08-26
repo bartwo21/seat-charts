@@ -4,6 +4,8 @@
 
 This component allows users to select seats on a bus, providing a visual representation of the bus layout and interactive seat selection. It handles different seat statuses and gender-based seat reservations.
 
+[npm Link](https://www.npmjs.com/package/seat-charts)
+
 ## [Installation](https://www.npmjs.com/package/seat-charts)
 
 To install the required dependencies, run the following command:
