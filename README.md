@@ -1,4 +1,4 @@
-![ezgif-4-6378d17fbc](https://github.com/user-attachments/assets/c4bae6e5-c96e-45c5-9731-998774a54413)# Bus and Event Seat Charts
+# Bus and Event Seat Charts
 
 ## Bus Seat Selection Functionality
 
