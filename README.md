@@ -115,37 +115,38 @@ The data I use for the bus and the event are in the src/data folder. You can get
 ```
 
 ```typescript
-import "./App.css";
-import { BusList, Event } from "seat-charts"; // required
+import { useState } from "react"; // required
 import { placeHolderBusSeats } from "./Bus"; // required
 import { BusListData } from "./BusListData"; // required
-import "rsuite/dist/rsuite.min.css"; // required
-import "../node_modules/seat-charts/src/styles/BusList.scss"; // required
-import "../node_modules/seat-charts/src/styles/BusSeat.scss"; // required
-import "../node_modules/seat-charts/src/styles/EventSeat.scss"; // required
-import "../node_modules/seat-charts/src/styles/Event.scss"; // required
-import { useState } from "react"; // required
 import { seatMap } from "./EventSeat"; // required
+import "rsuite/dist/rsuite.min.css"; // required
+import "seat-charts/styles/BusList.scss";  // required
+import "seat-charts/styles/BusSeat.scss";  // required
+import "seat-charts/styles/EventSeat.scss"; // required
+import "seat-charts/styles/Event.scss";  // required
+import "./App.css";
+
+import { BusList, Event, SelectedSeat, EventSelectedSeat, BusTicket, BusSeat } from "seat-charts";
 
 function App() {
-  const [userSelectedSeats, setUserSelectedSeats] = useState({}); // required
-  const [selectedSeat, setSelectedSeat] = useState(""); // required
-  const [busData, setBusData] = useState<any[]>([]); // required
-
-  const [userSelectedEventSeats, setUserSelectedEventSeats] = useState([]); // required
-
+  const [userSelectedSeats, setUserSelectedSeats] = useState<{
+    [busId: string]: SelectedSeat[];
+  }>({});
+  const [selectedSeat, setSelectedSeat] = useState<string>("");
+  const [busData, setBusData] = useState<BusTicket[]>([]);
+  const [userSelectedEventSeats, setUserSelectedEventSeats] = useState<EventSelectedSeat[]>([]);
   return (
     <>
       <BusList
-        busSeats={placeHolderBusSeats}
-        busTicketData={BusListData as any} // needs to be specified as any
+        busSeats={placeHolderBusSeats as BusSeat[]}
+        busTicketData={BusListData as unknown as BusTicket[]}
         onUserSelectedSeatsChange={setUserSelectedSeats}
         onSelectedSeatChange={setSelectedSeat}
         onBusDataChange={setBusData}
       />
       <Event
         seatMap={seatMap}
-        onUserSelectedSeatsChange={setUserSelectedEventSeats as any} // needs to be specified as any
+        onUserSelectedSeatsChange={setUserSelectedEventSeats}
       />
     </>
   );
